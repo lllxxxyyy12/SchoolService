@@ -28,7 +28,7 @@
 
 ##### 维护信息表	 
 
-#####        ![维护信息表](D:\github文档\SchoolService\support_image\maintable.png) 	
+#####        ![维护信息表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/maintable.png) 	
 
  ##### 分类信息表![分类信息表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/incontentclassifly.png)		
 
