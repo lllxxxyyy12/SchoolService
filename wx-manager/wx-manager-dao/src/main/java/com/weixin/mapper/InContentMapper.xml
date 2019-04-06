@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.mapper.InContentMapper">
+	<resultMap id="BaseResultMap" type="com.weixin.pojo.InContent">
+		<id column="uid" property="uid" jdbcType="BIGINT" />
+		<result column="category_id" property="categoryId" jdbcType="BIGINT" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="title_des" property="titleDes" jdbcType="VARCHAR" />
+		<result column="pic" property="pic" jdbcType="VARCHAR" />
+		<result column="created" property="created" jdbcType="TIMESTAMP" />
+		<result column="updated" property="updated" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		uid, category_id, title, title_des, pic, created, updated
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.weixin.pojo.InContentExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from in_content
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from in_content
+		where uid = #{uid,jdbcType=BIGINT}
+	</select>
+	<!-- 自定义sql -->
+	<select id="selectByCategoryId" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from in_content
+		where category_id = #{category_id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from in_content
+		where uid = #{uid,jdbcType=BIGINT}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.weixin.pojo.InContentExample">
+		delete from in_content
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.weixin.pojo.InContent">
+		insert into in_content (uid, category_id, title,
+		title_des, pic, created,
+		updated)
+		values (#{uid,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT},
+		#{title,jdbcType=VARCHAR},
+		#{titleDes,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP},
+		#{updated,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.weixin.pojo.InContent">
+		insert into in_content
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="categoryId != null">
+				category_id,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="titleDes != null">
+				title_des,
+			</if>
+			<if test="pic != null">
+				pic,
+			</if>
+			<if test="created != null">
+				created,
+			</if>
+			<if test="updated != null">
+				updated,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uid != null">
+				#{uid,jdbcType=BIGINT},
+			</if>
+			<if test="categoryId != null">
+				#{categoryId,jdbcType=BIGINT},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="titleDes != null">
+				#{titleDes,jdbcType=VARCHAR},
+			</if>
+			<if test="pic != null">
+				#{pic,jdbcType=VARCHAR},
+			</if>
+			<if test="created != null">
+				#{created,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updated != null">
+				#{updated,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.weixin.pojo.InContentExample"
+		resultType="java.lang.Integer">
+		select count(*) from in_content
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update in_content
+		<set>
+			<if test="record.uid != null">
+				uid = #{record.uid,jdbcType=BIGINT},
+			</if>
+			<if test="record.categoryId != null">
+				category_id = #{record.categoryId,jdbcType=BIGINT},
+			</if>
+			<if test="record.title != null">
+				title = #{record.title,jdbcType=VARCHAR},
+			</if>
+			<if test="record.titleDes != null">
+				title_des = #{record.titleDes,jdbcType=VARCHAR},
+			</if>
+			<if test="record.pic != null">
+				pic = #{record.pic,jdbcType=VARCHAR},
+			</if>
+			<if test="record.created != null">
+				created = #{record.created,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.updated != null">
+				updated = #{record.updated,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update in_content
+		set uid = #{record.uid,jdbcType=BIGINT},
+		category_id = #{record.categoryId,jdbcType=BIGINT},
+		title = #{record.title,jdbcType=VARCHAR},
+		title_des = #{record.titleDes,jdbcType=VARCHAR},
+		pic = #{record.pic,jdbcType=VARCHAR},
+		created = #{record.created,jdbcType=TIMESTAMP},
+		updated = #{record.updated,jdbcType=TIMESTAMP}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.weixin.pojo.InContent">
+		update in_content
+		<set>
+			<if test="categoryId != null">
+				category_id = #{categoryId,jdbcType=BIGINT},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="titleDes != null">
+				title_des = #{titleDes,jdbcType=VARCHAR},
+			</if>
+			<if test="pic != null">
+				pic = #{pic,jdbcType=VARCHAR},
+			</if>
+			<if test="created != null">
+				created = #{created,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updated != null">
+				updated = #{updated,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where uid = #{uid,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.weixin.pojo.InContent">
+		update in_content
+		set category_id = #{categoryId,jdbcType=BIGINT},
+		title = #{title,jdbcType=VARCHAR},
+		title_des = #{titleDes,jdbcType=VARCHAR},
+		pic = #{pic,jdbcType=VARCHAR},
+		created = #{created,jdbcType=TIMESTAMP},
+		updated = #{updated,jdbcType=TIMESTAMP}
+		where uid = #{uid,jdbcType=BIGINT}
+	</update>
+</mapper>
