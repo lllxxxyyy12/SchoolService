@@ -19,34 +19,34 @@
 #####用户信息表
 
 
-![用户信息表](D:\github文档\SchoolService\support_image\user.png)
+![用户信息表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/user.png)
 
 ##### 管理员信息表
 
-![](D:\github文档\SchoolService\support_image\manager.png))
+![](https://github.com/Softwarekang/SchoolService/blob/master/support_image/manager.png))
 
 
 ##### 维护信息表	 
 
 #####        ![维护信息表](D:\github文档\SchoolService\support_image\maintable.png) 	
 
- ##### 分类信息表![分类信息表](D:\github文档\SchoolService\support_image\incontentclassifly.png)		
+ ##### 分类信息表![分类信息表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/incontentclassifly.png)		
 
 ##### 内容表
 
-​	![内容表](D:\github文档\SchoolService\support_image\content.png)
+​	![内容表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/content.png)
 
 ##### 建议类型表
 
-![分类类型表](D:\github文档\SchoolService\support_image\sugsort.png)
+![分类类型表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/sugsort.png)
 
 ##### 建议内容表
 
-##### 	![建议内容表](D:\github文档\SchoolService\support_image\sugtable.png)
+##### 	![建议内容表](https://github.com/Softwarekang/SchoolService/blob/master/support_image/sugtable.png)
 
 #### 4.技术框架与系统架构(SSM  + SOA)
 
-![](D:\github文档\SchoolService\support_image\dubbo.png)	
+![](https://github.com/Softwarekang/SchoolService/blob/master/support_image/dubbo.png)	
 
 分布式架构：多个子系统相互协作才能完成业务流程。系统之间需要进行通信。
 
