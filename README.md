@@ -3,7 +3,7 @@
 
 #### 1.功能分析图
 
-​	![功能图](D:\github文档\SchoolService\support_image\schoolService.png)
+​	![功能图](https://github.com/Softwarekang/SchoolService/blob/master/support_image/SchoolService.png)
 
 #### 2.开发工具
 
